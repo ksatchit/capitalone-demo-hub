@@ -1,0 +1,24 @@
+cmdProbe/inputs:
+  command: ./taskEngineFunctionalCheck --credentials=/etc/secret/credentials.json
+    --task=task1 --host=http://task-processing-engine-2120480549.us-east-2.elb.amazonaws.com
+  comparator:
+    criteria: contains
+    type: string
+    value: COMPLETED
+  source:
+    image: shubh214/tpe-functional-check:1.0.0
+    volumeMount:
+    - mountPath: /etc/secret
+      name: app-secret
+    volumes:
+    - name: app-secret
+      secret:
+        secretName: app-secret
+mode: Continuous
+name: task-process-engine-functionality-check
+runProperties:
+  attempt: 2
+  interval: 1s
+  probePollingInterval: 1s
+  probeTimeout: 60s
+type: cmdProbe

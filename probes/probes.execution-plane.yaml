@@ -2,3 +2,6 @@ probes:
 - infraType: Kubernetes
   name: tp-engine-check
   type: cmdProbe
+- infraType: Kubernetes
+  name: task-process-engine-functionality-check
+  type: cmdProbe
