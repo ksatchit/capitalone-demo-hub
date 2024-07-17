@@ -1,1 +1,4 @@
 probes:
+- infraType: Kubernetes
+  name: task-process-engine-check
+  type: cmdProbe
