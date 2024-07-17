@@ -15,10 +15,10 @@ cmdProbe/inputs:
       secret:
         secretName: app-secret
 mode: Continuous
-name: task-process-engine-check
+name: tp-engine-check
 runProperties:
   attempt: 2
-  interval: 1s
-  probePollingInterval: 1s
+  interval: 5s
+  probePollingInterval: 5s
   probeTimeout: 60s
 type: cmdProbe
